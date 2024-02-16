@@ -2,7 +2,7 @@
 
 ## Overview
 
-Wolfram is a project aimed at implementing Wolfram's elementary cellular automaton in the terminal using Haskell. The elementary cellular automaton follows rules 30, 90, and 110, with the possibility of implementing additional rules as a bonus. The cellular automaton exists in an infinite space, allowing unseen parts to affect future generations.
+Wolfram is a project aimed at implementing Wolfram's elementary cellular automaton in the terminal using Haskell. The elementary cellular automaton follows rules 30, 90, and 110. The cellular automaton exists in an infinite space, allowing unseen parts to affect future generations.
 
 ## Features
 
