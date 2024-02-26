@@ -1,4 +1,4 @@
-# Changelog for `Wolfram`
+# Changelog for `wolfram`
 
 All notable changes to this project will be documented in this file.
 

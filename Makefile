@@ -5,26 +5,21 @@
 ## Makefile
 ##
 
-NAME =	wolfram
+NAME = wolfram
 
-BINARY_PATH = $(shell stack path --local-install-root)
+all: build copy
 
-all: $(NAME)
+build:
+	stack build
 
-$(NAME):
-		stack build
-		cp $(BINARY_PATH)/bin/$(NAME)-exe ./$(NAME)
+copy:
+	cp `stack path --local-install-root`/bin/wolfram-exe ./$(NAME)
 
 clean:
-		stack clean
+	stack clean
 
 fclean: clean
-		$(RM) $(NAME)
+	rm -f $(NAME)
 
-tests_run:
-		stack test --coverage
-		stack hpc report --all --destdir test/coverage/
+re: fclean all
 
-re:		fclean all
-
-.PHONY: all clean fclean tests_run re

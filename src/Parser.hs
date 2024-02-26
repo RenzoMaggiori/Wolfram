@@ -25,17 +25,20 @@ getOptions args
   | "--rule" `notElem` args = Nothing
   | otherwise = parseArgs args (Just defaultConf)
 
+validRule :: Int -> Bool
+validRule r = r >= 0 && r <= 255
+
+updateConfig :: String -> Int -> Config -> Maybe Config
+updateConfig "--rule" val conf | validRule val = Just conf { rule = val }
+updateConfig "--start" val conf | val >= 0 = Just conf { start = val }
+updateConfig "--lines" val conf | val >= 0 = Just conf { numLines = Just val }
+updateConfig "--window" val conf | val >= 0 = Just conf { window = val }
+updateConfig "--move" val conf = Just conf { move = val }
+updateConfig _ _ _ = Nothing
+
 parseArgs :: [String] -> Maybe Config -> Maybe Config
 parseArgs (o:v:rs) (Just conf) = case readMaybe v of
-    Just val -> parseArgs rs $ case o of
-        "--rule" | validRule val -> Just conf { rule = val }
-        "--start" | val >= 0 -> Just conf { start = val }
-        "--lines" | val >= 0 -> Just conf { numLines = Just val }
-        "--window" | val >= 0 -> Just conf { window = val }
-        "--move" -> Just conf { move = val }
-        _ -> Nothing
+    Just val -> parseArgs rs $ updateConfig o val conf
     Nothing -> Nothing
-  where
-    validRule r = r >= 0 && r <= 255
 parseArgs [] conf = conf
 parseArgs _ _ = Nothing
