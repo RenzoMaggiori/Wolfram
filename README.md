@@ -52,7 +52,7 @@ To compile Wolfram, use the provided Makefile. Make sure to include all necessar
 
 ## Tests
 <div align="center">
-  <img src="./test/tests.png" />
+  <img src="./tests.png" />
 </div>
 
 ## License
