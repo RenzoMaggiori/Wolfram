@@ -49,6 +49,12 @@ To compile Wolfram, use the provided Makefile. Make sure to include all necessar
                                 **  *   ***     *
                                ** **** **  *   ***
 ```
+
+## Tests
+<div align="center">
+  <img src="./test/tests.png" />
+</div>
+
 ## License
 
 Wolfram was developed by [Renzo Maggiori](https://github.com/RenzoMaggiori). Feel free to use, modify, and distribute it.
